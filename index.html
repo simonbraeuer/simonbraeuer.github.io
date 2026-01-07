@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Business Website</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #111;
+      color: #fff;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+    .logo {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    .burger {
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 250px;
+      height: 100%;
+      background: #222;
+      padding-top: 5rem;
+      transition: right 0.3s ease;
+    }
+    nav.active {
+      right: 0;
+    }
+    nav a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #333;
+    }
+    nav a:hover {
+      background: #333;
+    }
+    section {
+      padding: 6rem 2rem 4rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    section h1 {
+      margin-top: 0;
+    }
+    section img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      margin: 1.5rem 0;
+      border-radius: 8px;
+    }
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Business Name</div>
+  <div class="burger" onclick="toggleMenu()">☰</div>
+</header>
+
+<nav id="menu">
+  <a href="#coaching" onclick="toggleMenu()">Coaching</a>
+  <a href="#methode" onclick="toggleMenu()">Methode</a>
+  <a href="#beratung" onclick="toggleMenu()">Beratung</a>
+  <a href="#preise" onclick="toggleMenu()">Preise</a>
+  <a href="#kontakt" onclick="toggleMenu()">Kontakt</a>
+</nav>
+
+<section id="coaching">
+  <h1>Coaching</h1>
+  <img src="https://picsum.photos/1000/300?1" alt="Coaching" />
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+</section>
+
+<section id="methode">
+  <h1>Methode</h1>
+  <img src="https://picsum.photos/1000/300?2" alt="Methode" />
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+  <p>Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.</p>
+</section>
+
+<section id="beratung">
+  <h1>Beratung</h1>
+  <img src="https://picsum.photos/1000/300?3" alt="Beratung" />
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</section>
+
+<section id="preise">
+  <h1>Preise</h1>
+  <img src="https://picsum.photos/1000/300?4" alt="Preise" />
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</section>
+
+<section id="kontakt">
+  <h1>Kontakt</h1>
+  <img src="https://picsum.photos/1000/300?5" alt="Kontakt" />
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  <p>Email: info@business.de<br />Telefon: +49 123 456789</p>
+</section>
+
+<footer>
+  <p>&copy; 2026 Business Name</p>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('menu').classList.toggle('active');
+  }
+</script>
+
+</body>
+</html>
