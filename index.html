@@ -1,86 +1,38 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Business Website</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elterncoaching & Familienbegleitung in Gramastetten</title>
+  <meta name="description" content="Einfühlsames Elterncoaching und Beratung für Familien in Gramastetten (4201) und Oberösterreich. Praxisnah, wertschätzend, individuell.">
+  <meta name="keywords" content="Elterncoaching Gramastetten, Familienberatung Oberösterreich, Kinderbetreuung Beratung, Erziehungsberatung 4201">
+
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
-    }
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: #111;
-      color: #fff;
-      padding: 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
-    }
-    .logo {
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-    .burger {
-      font-size: 1.8rem;
-      cursor: pointer;
-    }
-    nav {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 250px;
-      height: 100%;
-      background: #222;
-      padding-top: 5rem;
-      transition: right 0.3s ease;
-    }
-    nav.active {
-      right: 0;
-    }
-    nav a {
-      display: block;
-      color: #fff;
-      text-decoration: none;
-      padding: 1rem 2rem;
-      border-bottom: 1px solid #333;
-    }
-    nav a:hover {
-      background: #333;
-    }
-    section {
-      padding: 6rem 2rem 4rem;
-      max-width: 1000px;
-      margin: auto;
-    }
-    section h1 {
-      margin-top: 0;
-    }
-    section img {
-      width: 100%;
-      max-height: 300px;
-      object-fit: cover;
-      margin: 1.5rem 0;
-      border-radius: 8px;
-    }
-    footer {
-      background: #111;
-      color: #fff;
-      text-align: center;
-      padding: 2rem;
-    }
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;line-height:1.7;color:#2f3e46}
+    header{position:fixed;top:0;left:0;right:0;background:#2f3e46;color:#fff;padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:center;z-index:1000}
+    .logo{font-weight:bold}
+    .burger{font-size:1.6rem;cursor:pointer}
+    nav{position:fixed;top:0;right:-100%;width:260px;height:100%;background:#354f52;padding-top:4.5rem;transition:.3s}
+    nav a{display:block;color:#fff;text-decoration:none;padding:1rem 1.5rem;border-bottom:1px solid #52796f}
+    nav.active{right:0}
+    section{padding:6.5rem 2rem 4rem;max-width:1000px;margin:auto}
+    h1,h2{color:#2f3e46}
+    img{width:100%;border-radius:12px;margin:2rem 0}
+    .hero{padding-top:7.5rem}
+    .hero p{font-size:1.1rem}
+    ul{padding-left:1.2rem}
+    footer{background:#2f3e46;color:#fff;text-align:center;padding:2rem}
+    footer a{color:#fff;text-decoration:underline}
+    form label{display:block;margin-bottom:1rem}
+    input,textarea{width:100%;padding:.7rem;font-size:1rem}
+    button{padding:.8rem 1.6rem;background:#52796f;color:#fff;border:none;border-radius:6px;font-size:1rem;cursor:pointer}
+    .cta{background:#cad2c5;border-radius:14px;padding:2rem;margin-top:2.5rem}
   </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">Business Name</div>
+  <div class="logo">Elterncoaching Gramastetten</div>
   <div class="burger" onclick="toggleMenu()">☰</div>
 </header>
 
@@ -92,49 +44,73 @@
   <a href="#kontakt" onclick="toggleMenu()">Kontakt</a>
 </nav>
 
-<section id="coaching">
-  <h1>Coaching</h1>
-  <img src="https://picsum.photos/1000/300?1" alt="Coaching" />
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-  <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+<section id="coaching" class="hero">
+  <h1>Einfühlsames Elterncoaching in Gramastetten</h1>
+  <p><strong>Mehr Ruhe, mehr Sicherheit und mehr Verbindung im Familienalltag.</strong></p>
+  <img src="https://picsum.photos/1000/350?family" alt="Elterncoaching Gramastetten">
+  <p>Ich begleite Eltern und Familien dabei, ihren Alltag mit Kindern bewusster, entspannter und klarer zu gestalten. In einem geschützten Rahmen finden wir gemeinsam Lösungen, die zu Ihnen, Ihrem Kind und Ihrer familiären Situation passen.</p>
+  <div class="cta">
+    <p><strong>Typische Anliegen:</strong></p>
+    <ul>
+      <li>Herausfordernde Erziehungssituationen</li>
+      <li>Grenzen setzen ohne Machtkämpfe</li>
+      <li>Überforderung und Erschöpfung im Familienalltag</li>
+      <li>Kommunikation mit Kindern stärken</li>
+      <li>Vereinbarkeit von Familie, Betreuung und Alltag</li>
+    </ul>
+  </div>
 </section>
 
 <section id="methode">
-  <h1>Methode</h1>
-  <img src="https://picsum.photos/1000/300?2" alt="Methode" />
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
-  <p>Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.</p>
+  <h2>Methode</h2>
+  <img src="https://picsum.photos/1000/300?child" alt="Bedürfnisorientierte Familienbegleitung">
+  <p>Meine Arbeit basiert auf einer wertschätzenden, bedürfnisorientierten Haltung. Jedes Kind und jede Familie ist einzigartig – daher gibt es bei mir keine vorgefertigten Konzepte, sondern individuelle Begleitung.</p>
+  <p>Gemeinsam schaffen wir Klarheit, stärken Ihre elterliche Kompetenz und entwickeln umsetzbare Schritte für Ihren Alltag.</p>
 </section>
 
 <section id="beratung">
-  <h1>Beratung</h1>
-  <img src="https://picsum.photos/1000/300?3" alt="Beratung" />
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-  <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <h2>Beratung</h2>
+  <img src="https://picsum.photos/1000/300?parent" alt="Elternberatung Oberösterreich">
+  <p>Die Beratung richtet sich an Eltern mit Kindern jeden Alters. Sie erhalten Orientierung, Entlastung und konkrete Impulse für aktuelle Fragestellungen rund um Betreuung, Entwicklung und Familienleben.</p>
 </section>
 
 <section id="preise">
-  <h1>Preise</h1>
-  <img src="https://picsum.photos/1000/300?4" alt="Preise" />
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-  <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <h2>Preise</h2>
+  <img src="https://picsum.photos/1000/300?home" alt="Preise Elterncoaching">
+  <p>Transparenz ist mir wichtig. Einzelgespräche sowie begleitende Coaching-Einheiten werden fair und nachvollziehbar verrechnet.</p>
+  <p>Gerne informiere ich Sie unverbindlich über aktuelle Preise und mögliche Pakete.</p>
 </section>
 
 <section id="kontakt">
-  <h1>Kontakt</h1>
-  <img src="https://picsum.photos/1000/300?5" alt="Kontakt" />
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-  <p>Email: info@business.de<br />Telefon: +49 123 456789</p>
+  <h2>Kontakt</h2>
+  <img src="https://picsum.photos/1000/300?contact" alt="Kontakt Elterncoaching Gramastetten">
+  <p>Sie möchten ein unverbindliches Erstgespräch vereinbaren oder haben Fragen zu meinem Angebot? Ich freue mich auf Ihre Nachricht.</p>
+
+  <form action="https://formspree.io/f/xykzrbwa" method="POST">
+    <label>Name
+      <input type="text" name="name" required>
+    </label>
+    <label>E-Mail
+      <input type="email" name="email" required>
+    </label>
+    <label>Nachricht
+      <textarea name="message" rows="5" required></textarea>
+    </label>
+    <label>
+      <input type="checkbox" required> Ich stimme der Verarbeitung meiner Daten gemäß Datenschutzerklärung zu.
+    </label>
+    <button type="submit">Nachricht senden</button>
+  </form>
+
+  <p><strong>Standort:</strong> Gramastetten (4201), Oberösterreich</p>
 </section>
 
 <footer>
-  <p>&copy; 2026 Business Name</p>
+  <p>&copy; 2026 · Einzelunternehmer · Gramastetten · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p>
 </footer>
 
 <script>
-  function toggleMenu() {
-    document.getElementById('menu').classList.toggle('active');
-  }
+function toggleMenu(){document.getElementById('menu').classList.toggle('active')}
 </script>
 
 </body>
