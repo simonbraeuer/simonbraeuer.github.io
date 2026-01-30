@@ -7,7 +7,7 @@
     "build": "ng build",
     "build:prod": "ng build --configuration production",
     "predeploy": "npm run build:prod",
-    "deploy": "angular-cli-ghpages --dir=dist/simonbraeuer"
+    "deploy": "gh-pages -d dist/simonbraeuer"
   },
   "private": true,
   "dependencies": {
