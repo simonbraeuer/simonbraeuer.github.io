@@ -1,0 +1,88 @@
+<header>
+  <div class="logo">{{ translations['header'][currentLanguage()] }}</div>
+  <div class="language-selector">
+    <select (change)="onLanguageChange($event)" [value]="currentLanguage()">
+      <option value="de">Deutsch</option>
+      <option value="en">English</option>
+      <option value="es">Español</option>
+      <option value="af">Afrikaans</option>
+      <option value="la">Latīnus</option>
+      <option value="tlh">Klingon</option>
+    </select>
+  </div>
+  <div class="burger" (click)="toggleMenu()">☰</div>
+</header>
+
+<nav [class.active]="menuOpen()">
+  <a href="#about" (click)="closeMenu()">{{ translations['about'][currentLanguage()] }}</a>
+  <a href="#skills" (click)="closeMenu()">{{ translations['skills'][currentLanguage()] }}</a>
+  <a href="#portfolio" (click)="closeMenu()">{{ translations['portfolio'][currentLanguage()] }}</a>
+  <a href="#contact" (click)="closeMenu()">{{ translations['contact'][currentLanguage()] }}</a>
+  <a href="#imprint" (click)="closeMenu()">{{ translations['imprint'][currentLanguage()] }}</a>
+</nav>
+
+<section id="about" class="hero">
+  <h1>{{ heroTexts['title'][currentLanguage()] }}</h1>
+  <p><strong>{{ heroTexts['subtitle'][currentLanguage()] }}</strong></p>
+  <p>{{ heroTexts['description'][currentLanguage()] }}</p>
+  <div class="cta">
+    <button class="btn-primary" (click)="downloadResume()">{{ translations['downloadResume'][currentLanguage()] }}</button>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>{{ translations['skills'][currentLanguage()] }}</h2>
+  <div class="skills-container">
+    <div class="skill-card">
+      <h3>Frontend</h3>
+      <ul>
+        <li>Angular 21</li>
+        <li>TypeScript</li>
+        <li>SCSS/CSS</li>
+        <li>Responsive Design</li>
+      </ul>
+    </div>
+    <div class="skill-card">
+      <h3>Backend</h3>
+      <ul>
+        <li>Node.js</li>
+        <li>Express.js</li>
+        <li>Database Design</li>
+        <li>REST APIs</li>
+      </ul>
+    </div>
+    <div class="skill-card">
+      <h3>Tools</h3>
+      <ul>
+        <li>Git</li>
+        <li>Docker</li>
+        <li>npm/yarn</li>
+        <li>VS Code</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <h2>{{ translations['portfolio'][currentLanguage()] }}</h2>
+  <p>Portfolio projects coming soon...</p>
+</section>
+
+<section id="contact">
+  <h2>{{ translations['contact'][currentLanguage()] }}</h2>
+  <p>Email: simonbraeuer@gmail.com</p>
+  <p>Phone: 0500 767676</p>
+</section>
+
+<section id="imprint">
+  <h2>{{ translations['imprint'][currentLanguage()] }}</h2>
+  <h3>Contact</h3>
+  <p><strong>Simon Bräuer</strong></p>
+  <p>Reichersdorf 3134</p>
+  <p>Email: simonbraeuer@gmail.com</p>
+  <p>Phone: 0500 767676</p>
+</section>
+
+<footer>
+  <p>&copy; 2026 Simon Bräuer. All Rights Reserved.</p>
+</footer>
