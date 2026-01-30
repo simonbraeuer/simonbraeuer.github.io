@@ -1,5 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 type Language = 'de' | 'en' | 'es' | 'af' | 'la' | 'tlh';
 
@@ -20,6 +22,17 @@ export class AppComponent {
   title = 'Simon Bräuer - Software Developer';
   currentLanguage = signal<Language>('de');
   menuOpen = signal(false);
+  currentSection = signal<string>('about');
+
+  constructor(private router: Router) {
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((event: any) => {
+        const section = event.url.split('/').pop() || 'about';
+        this.currentSection.set(section);
+        this.closeMenu();
+      });
+  }
 
   translations: Translations = {
     header: {
@@ -107,13 +120,13 @@ export class AppComponent {
     }
   };
 
-  changeLanguage(lang: Language) {
-    this.currentLanguage.set(lang);
+  changeLanguage(event: Event) {
+    const value = (event.target as HTMLSelectElement).value as Language;
+    this.currentLanguage.set(value);
   }
 
-  onLanguageChange(event: Event) {
-    const value = (event.target as HTMLSelectElement).value as Language;
-    this.changeLanguage(value);
+  navigate(section: string) {
+    this.router.navigate([section]);
   }
 
   toggleMenu() {

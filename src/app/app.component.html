@@ -1,7 +1,7 @@
 <header>
-  <div class="logo">{{ translations['header'][currentLanguage()] }}</div>
+  <div class="logo" (click)="navigate('about'); closeMenu()">{{ translations['header'][currentLanguage()] }}</div>
   <div class="language-selector">
-    <select (change)="onLanguageChange($event)" [value]="currentLanguage()">
+    <select (change)="changeLanguage($event)" [value]="currentLanguage()">
       <option value="de">Deutsch</option>
       <option value="en">English</option>
       <option value="es">Español</option>
@@ -14,11 +14,11 @@
 </header>
 
 <nav [class.active]="menuOpen()">
-  <a href="#about" (click)="closeMenu()">{{ translations['about'][currentLanguage()] }}</a>
-  <a href="#skills" (click)="closeMenu()">{{ translations['skills'][currentLanguage()] }}</a>
-  <a href="#portfolio" (click)="closeMenu()">{{ translations['portfolio'][currentLanguage()] }}</a>
-  <a href="#contact" (click)="closeMenu()">{{ translations['contact'][currentLanguage()] }}</a>
-  <a href="#imprint" (click)="closeMenu()">{{ translations['imprint'][currentLanguage()] }}</a>
+  <a (click)="navigate('about')">{{ translations['about'][currentLanguage()] }}</a>
+  <a (click)="navigate('skills')">{{ translations['skills'][currentLanguage()] }}</a>
+  <a (click)="navigate('portfolio')">{{ translations['portfolio'][currentLanguage()] }}</a>
+  <a (click)="navigate('contact')">{{ translations['contact'][currentLanguage()] }}</a>
+  <a (click)="navigate('imprint')">{{ translations['imprint'][currentLanguage()] }}</a>
 </nav>
 
 <section id="about" class="hero">

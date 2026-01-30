@@ -10,10 +10,16 @@ header {
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   .logo {
     font-weight: bold;
     font-size: 1.2rem;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
   }
 
   .language-selector {
@@ -30,10 +36,11 @@ header {
   .burger {
     font-size: 1.6rem;
     cursor: pointer;
-    display: none;
+    display: block;
+    transition: transform 0.2s;
 
-    @media (max-width: 768px) {
-      display: block;
+    &:hover {
+      transform: scale(1.1);
     }
   }
 }
@@ -46,8 +53,9 @@ nav {
   height: 100%;
   background: #354f52;
   padding-top: 4.5rem;
-  transition: 0.3s;
+  transition: right 0.3s ease-in-out;
   z-index: 999;
+  overflow-y: auto;
 
   &.active {
     right: 0;
@@ -59,6 +67,8 @@ nav {
     text-decoration: none;
     padding: 1rem 1.5rem;
     border-bottom: 1px solid #52796f;
+    cursor: pointer;
+    transition: background 0.2s;
 
     &:hover {
       background: #2f3e46;
