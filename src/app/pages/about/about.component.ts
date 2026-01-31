@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import aboutTranslations from './about.Translations.json';
+import aboutTranslations from './about.translations.json';
 type Language = 'de' | 'en' | 'es' | 'af' | 'la' | 'tlh';
 
 interface Translations {
