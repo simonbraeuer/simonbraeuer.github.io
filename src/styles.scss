@@ -11,6 +11,17 @@ html, body {
   color: #333;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 a {
   color: #52796f;
   text-decoration: none;

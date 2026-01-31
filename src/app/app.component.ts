@@ -1,6 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component, effect, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
 type Language = 'de' | 'en' | 'es' | 'af' | 'la' | 'tlh';
@@ -14,7 +14,7 @@ interface Translations {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -23,6 +23,7 @@ export class AppComponent {
   currentLanguage = signal<Language>('de');
   menuOpen = signal(false);
   currentSection = signal<string>('about');
+  private activeComponent: { currentLanguage?: Language } | null = null;
 
   constructor(private router: Router) {
     this.router.events
@@ -32,6 +33,13 @@ export class AppComponent {
         this.currentSection.set(section);
         this.closeMenu();
       });
+
+    effect(() => {
+      const language = this.currentLanguage();
+      if (this.activeComponent && 'currentLanguage' in this.activeComponent) {
+        this.activeComponent.currentLanguage = language;
+      }
+    });
   }
 
   translations: Translations = {
@@ -51,14 +59,6 @@ export class AppComponent {
       la: 'De me',
       tlh: 'jIH\'a\''
     },
-    skills: {
-      de: 'Fähigkeiten',
-      en: 'Skills',
-      es: 'Habilidades',
-      af: 'Vaardighede',
-      la: 'Artes',
-      tlh: 'QaPla\''
-    },
     portfolio: {
       de: 'Portfolio',
       en: 'Portfolio',
@@ -66,63 +66,13 @@ export class AppComponent {
       af: 'Portefeulje',
       la: 'Portfolio',
       tlh: 'wa\'DIch'
-    },
-    contact: {
-      de: 'Kontakt',
-      en: 'Contact',
-      es: 'Contacto',
-      af: 'Kontak',
-      la: 'Contactus',
-      tlh: 'ngoQ'
-    },
-    imprint: {
-      de: 'Impressum',
-      en: 'Imprint',
-      es: 'Aviso Legal',
-      af: 'Kopiereg',
-      la: 'Notitia',
-      tlh: 'mIw'
-    },
-    downloadResume: {
-      de: 'Lebenslauf herunterladen',
-      en: 'Download Resume',
-      es: 'Descargar CV',
-      af: 'Laai CV af',
-      la: 'Curriculum vitae',
-      tlh: 'puq yIjatlh'
-    }
-  };
-
-  heroTexts: Translations = {
-    title: {
-      de: 'Fullstack Software Entwickler',
-      en: 'Fullstack Software Engineer',
-      es: 'Ingeniero de Software Fullstack',
-      af: 'Volledige-stapel Sagteware-ingenieur',
-      la: 'Artifex Programmatis Plenus',
-      tlh: 'Puq wa\'DIch QaPla\''
-    },
-    subtitle: {
-      de: 'Spezialisiert auf moderne Webanwendungen und Softwarearchitektur',
-      en: 'Specialized in Modern Web Applications and Software Architecture',
-      es: 'Especializado en Aplicaciones Web Modernas y Arquitectura de Software',
-      af: 'Gespesialiseer in Moderne Webaplikasies en Sagteware-argitektuur',
-      la: 'Peritissimus in Applicationibus Retialibus Modernae et Architecturae Programmatis',
-      tlh: 'wa\'DIch qapla\' jatlhbe\''
-    },
-    description: {
-      de: 'Ich entwickle robuste, skalierbare Webanwendungen mit Angular und TypeScript. Mit Erfahrung in Fullstack-Entwicklung biete ich durchdachte Lösungen für komplexe technische Anforderungen.',
-      en: 'I develop robust, scalable web applications using Angular and TypeScript. With fullstack development expertise, I deliver well-architected solutions for complex technical requirements.',
-      es: 'Desarrollo aplicaciones web robustas y escalables usando Angular y TypeScript. Con experiencia en desarrollo fullstack, entrego soluciones bien arquitectadas para requisitos técnicos complejos.',
-      af: 'Ek ontwikkel robuuste, skaalbare webaplikasies wat Angular en TypeScript gebruik. Met fullstack-ontwikkelingservaring lewer ek goed-gearchitektuurde oplossings vir komplekse tegnieke vereistes.',
-      la: 'Applicationes retiales robustas et scalabiles creo cum Angular et TypeScript. Cum expertisia programmatis plenus, solutiones bene architectae praebeo.',
-      tlh: 'Software Qo\'noS potlh yIQaPla\''
     }
   };
 
   changeLanguage(event: Event) {
     const value = (event.target as HTMLSelectElement).value as Language;
     this.currentLanguage.set(value);
+    this.closeMenu()
   }
 
   navigate(section: string) {
@@ -137,10 +87,22 @@ export class AppComponent {
     this.menuOpen.set(false);
   }
 
-  downloadResume() {
-    const link = document.createElement('a');
-    link.href = 'assets/Simon_Braeuer_Resume.pdf';
-    link.download = 'Simon_Braeuer_Resume.pdf';
-    link.click();
+  onActivate(component: { currentLanguage?: Language }) {
+    this.activeComponent = component;
+    if (component && 'currentLanguage' in component) {
+      component.currentLanguage = this.currentLanguage();
+    }
+  }
+
+  getLanguageFlag(language: Language): string {
+    const flags: Record<Language, string> = {
+      de: '🇩🇪',
+      en: '🇬🇧',
+      es: '🇪🇸',
+      af: '🇿🇦',
+      la: '🇻🇦',
+      tlh: '⚔️'
+    };
+    return flags[language];
   }
 }

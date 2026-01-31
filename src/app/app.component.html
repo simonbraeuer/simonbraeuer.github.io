@@ -1,7 +1,17 @@
 <header>
   <div class="logo" (click)="navigate('about'); closeMenu()">{{ translations['header'][currentLanguage()] }}</div>
+  <div class="header-right">
+    <div class="language-flag">{{ getLanguageFlag(currentLanguage()) }}</div>
+    <div class="burger" (click)="toggleMenu()">☰</div>
+  </div>
+</header>
+
+<div class="menu-overlay" [class.active]="menuOpen()" (click)="closeMenu()"></div>
+
+<nav [class.active]="menuOpen()">
   <div class="language-selector">
-    <select (change)="changeLanguage($event)" [value]="currentLanguage()">
+    <label>Sprache / Language</label>
+    <select (change)="changeLanguage($event)" (keyup.enter)="changeLanguage($event)" [value]="currentLanguage()">
       <option value="de">Deutsch</option>
       <option value="en">English</option>
       <option value="es">Español</option>
@@ -10,79 +20,32 @@
       <option value="tlh">Klingon</option>
     </select>
   </div>
-  <div class="burger" (click)="toggleMenu()">☰</div>
-</header>
 
-<nav [class.active]="menuOpen()">
-  <a (click)="navigate('about')">{{ translations['about'][currentLanguage()] }}</a>
-  <a (click)="navigate('skills')">{{ translations['skills'][currentLanguage()] }}</a>
-  <a (click)="navigate('portfolio')">{{ translations['portfolio'][currentLanguage()] }}</a>
-  <a (click)="navigate('contact')">{{ translations['contact'][currentLanguage()] }}</a>
-  <a (click)="navigate('imprint')">{{ translations['imprint'][currentLanguage()] }}</a>
+  <div class="nav-divider"></div>
+
+  <div class="nav-section">
+    <a [class.active]="currentSection() === 'about'" (click)="navigate('about')">{{ translations['about'][currentLanguage()] }}</a>
+    <a [class.active]="currentSection() === 'portfolio'" (click)="navigate('portfolio')">{{ translations['portfolio'][currentLanguage()] }}</a>
+  </div>
 </nav>
 
-<section id="about" class="hero">
-  <h1>{{ heroTexts['title'][currentLanguage()] }}</h1>
-  <p><strong>{{ heroTexts['subtitle'][currentLanguage()] }}</strong></p>
-  <p>{{ heroTexts['description'][currentLanguage()] }}</p>
-  <div class="cta">
-    <button class="btn-primary" (click)="downloadResume()">{{ translations['downloadResume'][currentLanguage()] }}</button>
-  </div>
-</section>
-
-<section id="skills">
-  <h2>{{ translations['skills'][currentLanguage()] }}</h2>
-  <div class="skills-container">
-    <div class="skill-card">
-      <h3>Frontend</h3>
-      <ul>
-        <li>Angular 21</li>
-        <li>TypeScript</li>
-        <li>SCSS/CSS</li>
-        <li>Responsive Design</li>
-      </ul>
-    </div>
-    <div class="skill-card">
-      <h3>Backend</h3>
-      <ul>
-        <li>Node.js</li>
-        <li>Express.js</li>
-        <li>Database Design</li>
-        <li>REST APIs</li>
-      </ul>
-    </div>
-    <div class="skill-card">
-      <h3>Tools</h3>
-      <ul>
-        <li>Git</li>
-        <li>Docker</li>
-        <li>npm/yarn</li>
-        <li>VS Code</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section id="portfolio">
-  <h2>{{ translations['portfolio'][currentLanguage()] }}</h2>
-  <p>Portfolio projects coming soon...</p>
-</section>
-
-<section id="contact">
-  <h2>{{ translations['contact'][currentLanguage()] }}</h2>
-  <p>Email: simonbraeuer@gmail.com</p>
-  <p>Phone: 0500 767676</p>
-</section>
-
-<section id="imprint">
-  <h2>{{ translations['imprint'][currentLanguage()] }}</h2>
-  <h3>Contact</h3>
-  <p><strong>Simon Bräuer</strong></p>
-  <p>Reichersdorf 3134</p>
-  <p>Email: simonbraeuer@gmail.com</p>
-  <p>Phone: 0500 767676</p>
-</section>
+<router-outlet (activate)="onActivate($event)"></router-outlet>
 
 <footer>
-  <p>&copy; 2026 Simon Bräuer. All Rights Reserved.</p>
+  <div class="footer-content">
+    <div class="footer-column">
+      <p>Simon Bräuer</p>
+      <p class="tagline">Fullstack Software Developer</p>
+    </div>
+    
+    <div class="footer-column">
+      <p><a href="mailto:simon.braeuer@gmail.com">📧 simonbraeuer@gmail.com</a></p>
+      <p><a href="tel:++43 677 62870478">📱 +43 677 62870478</a></p>
+    </div>
+
+    <div class="footer-column">
+      <p>&copy; 2026 Simon Bräuer</p>
+      <p class="license">All Rights Reserved</p>
+    </div>
+  </div>
 </footer>
