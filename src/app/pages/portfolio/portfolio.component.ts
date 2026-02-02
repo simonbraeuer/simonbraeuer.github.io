@@ -3,6 +3,7 @@ import { Component, inject, Input } from '@angular/core';
 import { PortfolioItemComponent } from './portfolio-item.component';
 import { PortfolioItemService } from './portfolio-item.service';
 import { Language, PortfolioItem } from './portfolio.models';
+import portfolioTranslations from './portfolio.translations.json';
 
 @Component({
   selector: 'app-portfolio',
@@ -45,17 +46,7 @@ import { Language, PortfolioItem } from './portfolio.models';
 export class PortfolioComponent {
   @Input() currentLanguage: Language = 'de';
   private readonly portfolioItemService = inject(PortfolioItemService);
-
-  translations: Record<string, Record<Language, string>> = {
-    "portfolio": {
-      "de": "Portfolio",
-      "en": "Portfolio",
-      "es": "Portafolio",
-      "af": "Portefeulje",
-      "la": "Portfolio",
-      "tlh": "wa'DIch"
-    }
-  };
+  translations = portfolioTranslations;
 
   items = this.portfolioItemService.getAll();
   

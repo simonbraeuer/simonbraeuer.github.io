@@ -1,0 +1,34 @@
+{
+    "portfolio": {
+        "de": "Portfolio",
+        "en": "Portfolio",
+        "es": "Portafolio",
+        "af": "Portefeulje",
+        "la": "Portfolio",
+        "tlh": "wa'DIch"
+    },
+    "openProject": {
+        "de": "Projekt öffnen",
+        "en": "Open project",
+        "es": "Abrir proyecto",
+        "af": "Open projek",
+        "la": "Aperire projectum",
+        "tlh": "pIj vIje'"
+    },
+    "viewRepo": {
+        "de": "Repo ansehen",
+        "en": "View repo",
+        "es": "Ver repositorio",
+        "af": "Kyk repo",
+        "la": "Repositorium specta",
+        "tlh": "repo' vIlegh"
+    },
+    "year": {
+        "de": "Jahr",
+        "en": "Year",
+        "es": "Año",
+        "af": "Jaar",
+        "la": "Annus",
+        "tlh": "DIS"
+    }
+}

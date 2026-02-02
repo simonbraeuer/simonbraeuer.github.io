@@ -1,0 +1,26 @@
+[
+    {
+        "id": "truttijagd",
+        "title": {
+            "de": "Truttijagd",
+            "en": "Trutti hunt",
+            "es": "Caza de Trutti",
+            "af": "Trutti jag",
+            "la": "Venatio Trutti",
+            "tlh": "Trutti yItIv"
+        },
+        "description": {
+            "de": "Wecke den Trutti in dir - Moorhuhnjagd wird befreit von Verlangen",
+            "en": "Awaken the Trutti within you - Moorhuhnjagd is freed from desire",
+            "es": "Despierta al Trutti dentro de ti: Moorhuhnjagd se libera del deseo",
+            "af": "Ontwaak die Trutti binne-in jou - Moorhuhnjagd word bevry van begeerte",
+            "la": "Excita Trutti intra te - Moorhuhnjagd a desiderio liberatur",
+            "tlh": "Trutti yItIv - Moorhuhnjagd tIv nIv"
+        },
+        "imageUrl": "/assets/portfolio/truttijagd.png",
+        "demoUrl": "https://truttijagd.github.io",
+        "repoUrl": "https://github.com/simonbraeuer/truttijagd",
+        "tags": ["game", "javascript", "canvas"],
+        "year": 2026
+    }
+]

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Language, PortfolioItem, Translations } from './portfolio.models';
-
+import portfolioTranslations from './portfolio.translations.json';
 @Component({
     selector: 'app-portfolio-item',
     standalone: true,
@@ -73,32 +73,7 @@ export class PortfolioItemComponent {
     @Input({ required: true }) item!: PortfolioItem;
     @Input({ required: true }) currentLanguage!: Language;
 
-    translations: Translations = {
-        "openProject": {
-            "de": "Projekt öffnen",
-            "en": "Open project",
-            "es": "Abrir proyecto",
-            "af": "Open projek",
-            "la": "Aperire projectum",
-            "tlh": "pIj vIje'"
-        },
-        "viewRepo": {
-            "de": "Repo ansehen",
-            "en": "View repo",
-            "es": "Ver repositorio",
-            "af": "Kyk repo",
-            "la": "Repositorium specta",
-            "tlh": "repo' vIlegh"
-        },
-        "year": {
-            "de": "Jahr",
-            "en": "Year",
-            "es": "Año",
-            "af": "Jaar",
-            "la": "Annus",
-            "tlh": "DIS"
-        },
-    };
+    translations: Translations = portfolioTranslations;
 
     get title(): string {
         return this.item?.title?.[this.currentLanguage] ?? '';
